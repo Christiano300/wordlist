@@ -25,8 +25,9 @@ def main():
 	for fpath in files:
 		with open(fpath, "r") as f:
 			for line in f:
-				if line.strip() != "":
-					words[line.strip().capitalize()] = 0
+				word = line.strip()
+				if word != "" and len(word) < 13 and word.isalpha():
+					words[word.lower()] = 0
 	
 	words = sorted(words.keys())
 	for word in words:
